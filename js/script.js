@@ -1,20 +1,22 @@
 
-// Transition Delay Feedback Section
+// Transition Delay Feedback Section and Animation Delay Section 1
+const section1text = document.querySelector('.section-1-content').children
 const rates = document.querySelectorAll('.client-feedback-rate')
-
 rates.forEach(rate => {
     const stars = rate.querySelectorAll('i')
     stars.forEach((star, idx) => {
         star.style.transitionDelay = `${idx * .1}s`
     })
 })
-
+Array.from(section1text).forEach((texts, idx) => {
+    texts.style.animationDelay = `${(idx + 2) * 0.2}s`
+})
 
 // Menu and Scroll to
+const sections = document.querySelectorAll('section')
 const logo = document.querySelector('.logo')
 const links = document.querySelectorAll('.navbar-list_link')
 const linksMobile = document.querySelectorAll('.navbar-list_linkMobile')
-const sections = document.querySelectorAll('section')
 
 function scrollToWhere(here) {
     window.scrollTo({
@@ -27,7 +29,10 @@ logo.addEventListener('click', () => {
     scrollToWhere(0)
 })
 
+
+
 links.forEach((link, idx) => {
+    link.style.animationDelay = `${(idx + 2) * 0.2}s`
     link.addEventListener('click', () => {
         const here = sections[idx + 1].offsetTop
         scrollToWhere(here)
@@ -107,8 +112,8 @@ vejaMenos.addEventListener('click', () => {
 })
 
 
-window.addEventListener('scroll', ()=>{
-    const x = window.innerHeight*0.9
+window.addEventListener('scroll', () => {
+    const x = window.innerHeight * 0.9
     sections.forEach(section => {
         const sectionTop = section.getBoundingClientRect().top
 
