@@ -203,7 +203,7 @@
             </div>
         </div>
 
-        <div class="swiper mySwiper artistas-wrapperMobile">
+        <div class="swiper mySwiper2 artistas-wrapperMobile">
             <div class="swiper-wrapper">
                 <div class="swiper-slide artistaMobile">
                     <img src="img/artistas/Paulo Ytalo.png" alt="">
@@ -250,11 +250,15 @@
             O Art Clube é um estúdio de tatuagem e piercing localizado em Fortaleza, onde a criatividade e a
             expressão se encontram. Com uma equipe apaixonada e habilidosa, criamos tatuagens que contam histórias e
             piercings que expressam personalidades. Com anos de experiência em tatuagem e piercing, nossa equipe
-            está sempre atualizada com as novas tendências e técnicas. Acreditamos que cada tatuagem e piercing é
-            uma obra de arte única. Trabalhamos com todos os estilos, desde minimalistas até realistas, e estamos
-            sempre prontos para tornar suas ideias realidade. Nossa equipe também se preocupa com a segurança e a
-            higiene no processo de tatuagem e piercing. Utilizamos materiais de alta qualidade e seguimos os mais
-            altos padrões de higiene para garantir a saúde e a segurança de nossos clientes.
+            está sempre atualizada com as novas tendências e técnicas.
+            <span class="dots">  ...</span><span class="seeMore show">veja mais</span>
+            <span class="toggleText">
+                Acreditamos que cada tatuagem e piercing é
+                uma obra de arte única. Trabalhamos com todos os estilos, desde minimalistas até realistas, e estamos
+                sempre prontos para tornar suas ideias realidade. Nossa equipe também se preocupa com a segurança e a
+                higiene no processo de tatuagem e piercing. Utilizamos materiais de alta qualidade e seguimos os mais
+                altos padrões de higiene para garantir a saúde e a segurança de nossos clientes.
+            </span> <span class="seeLess">veja menos</span>
         </p>
         <!-- Fim Seção 3 conteúdo -->
     </section>
@@ -391,7 +395,7 @@
                 </p>
             </div>
         </div>
-        <div class="swiper mySwiper2 client-cardsMobile">
+        <!-- <div class="swiper mySwiper2 client-cardsMobile">
             <div class="swiper-wrapper">
                 <div class="swiper-slide card">
                     <div class="card-profile">
@@ -517,7 +521,7 @@
                 </div>
             </div>
             <div class="swiper-scrollbar"></div>
-          </div>
+        </div> -->
         <!-- Fim do Feedback dos Clientes -->
 
         <!-- Links -->
@@ -535,7 +539,7 @@
             <div class="vejaMais">
                 <a href="#" class="link">
                     <span class="vejaMais">Veja Mais</span>
-                    <img src="img/icones/icones/enterlink.png" alt="">
+                    <img src="img/icones/enterlink.png" alt="">
                 </a>
             </div>
         </div>
@@ -711,7 +715,7 @@
 
     <!-- Initialize Swiper -->
     <script>
-        const swiper = new Swiper(".mySwiper", {
+        const swiper = new Swiper(".mySwiper2", {
             slidesPerView: 3,
             spaceBetween: 40,
             freeMode: true,
@@ -720,32 +724,6 @@
                 delay: 2000,
                 disableOnInteraction: false,
             },
-            breakpoints: {
-                801: {
-                    slidesPerView: 1,
-                    spaceBetween: 0,
-                    pagination: {
-                        el: '.swiper-pagination',
-                        type: 'fraction',
-                    },
-                    autoplay: {
-                        delay: 5000,
-                        disableOnInteraction: false,
-                    },
-                    effect: 'slide',
-                }
-            }
-
-        });
-        const swiper2 = new Swiper(".mySwiper2", {
-            direction: "vertical",
-            slidesPerView: "auto",
-            freeMode: true,
-            scrollbar: {
-                el: ".swiper-scrollbar",
-            },
-            mousewheel: true,
-
         });
     </script>
 

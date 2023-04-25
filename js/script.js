@@ -1,26 +1,3 @@
-// const pagination = document.querySelectorAll('.ball')
-// const slides = document.querySelectorAll('.slides > div')
-
-// // function()
-
-// pagination.forEach((curr, idx) => {
-//     curr.addEventListener('click', () => {
-//         loseAll()
-//         curr.classList.add('current')
-//         slides[idx].classList.add('show')
-//     })
-// })
-
-// function loseAll() {
-//     pagination.forEach((curr) => {
-//         curr.classList.remove('current')
-//     })
-//     slides.forEach((slide) => {
-//         slide.classList.remove('show')
-//     })
-// }
-
-const bullet = document.querySelectorAll('.swiper-pagination-bullet')
 
 // Transition Delay Feedback Section
 const rates = document.querySelectorAll('.client-feedback-rate')
@@ -36,6 +13,7 @@ rates.forEach(rate => {
 // Menu and Scroll to
 const logo = document.querySelector('.logo')
 const links = document.querySelectorAll('.navbar-list_link')
+const linksMobile = document.querySelectorAll('.navbar-list_linkMobile')
 const sections = document.querySelectorAll('section')
 
 function scrollToWhere(here) {
@@ -50,6 +28,13 @@ logo.addEventListener('click', () => {
 })
 
 links.forEach((link, idx) => {
+    link.addEventListener('click', () => {
+        const here = sections[idx + 1].offsetTop
+        scrollToWhere(here)
+    })
+})
+
+linksMobile.forEach((link, idx) => {
     link.addEventListener('click', () => {
         const here = sections[idx + 1].offsetTop
         scrollToWhere(here)
@@ -71,9 +56,9 @@ const Navbar = {
     Events: {
         fixNav: function () {
             if (window.scrollY > this.nav.offsetHeight + 150) {
-                this.nav.classList.add(`active`)
+                this.nav.classList.add(`desktop`)
             } else {
-                this.nav.classList.remove(`active`)
+                this.nav.classList.remove(`desktop`)
             }
         }
     }
@@ -99,4 +84,36 @@ const faqs = document.querySelectorAll('.faqsMobile .faq')
 faqs.forEach(faq => {
 
     faq.onclick = () => faq.classList.toggle('show')
+})
+
+
+// Section 3 Text Show/Hide
+const vejaMais = document.querySelector(`.seeMore`)
+const vejaMenos = document.querySelector(`.seeLess`)
+const dots = document.querySelector('.dots')
+const toggleText = document.querySelector('.toggleText')
+
+vejaMais.addEventListener('click', () => {
+    dots.style.display = 'none'
+    toggleText.style.display = 'inline'
+    vejaMenos.classList.add('show')
+    vejaMais.classList.remove('show')
+})
+vejaMenos.addEventListener('click', () => {
+    dots.style.display = 'inline'
+    toggleText.style.display = 'none'
+    vejaMenos.classList.remove('show')
+    vejaMais.classList.add('show')
+})
+
+
+window.addEventListener('scroll', ()=>{
+    const x = window.innerHeight*0.9
+    sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top
+
+        if (sectionTop < x) {
+            section.classList.add(`translate`)
+        }
+    })
 })

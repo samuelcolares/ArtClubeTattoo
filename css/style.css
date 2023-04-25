@@ -43,19 +43,15 @@ body {
     background-size: cover;
     background-blend-mode: overlay;
     background-position: center;
-    /* background-color: rgb(109, 90, 56); */
     overflow-x: hidden;
 }
+
 /* End of Common Styles */
 
 /* Section 1 */
 .section-1 {
     height: 100vh;
     padding: 0 7.5rem;
-    /* background:url(../img/firstSection-image.png);
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: contain; */
     overflow: hidden;
     position: relative;
 }
@@ -90,31 +86,23 @@ body {
     padding-left: 7.5rem;
 }
 
-.navbar.active {
+.navbar.desktop {
     height: 5rem;
     margin-top: 0;
     background-color: #222222c7;
     box-shadow: 0px 2px 15px black;
+    z-index: 1000;
+    inset: 0;
 }
 
-.navbar.active .logo {
+.navbar.desktop .logo {
     width: 3rem;
     filter: drop-shadow(0rem 0rem 0.2rem white);
 }
 
-.navbar.active .navbar-list {
+.navbar.desktop .navbar-list {
     margin-top: 0rem;
 }
-
-/* .navbar.active .navbar-list_link{
-    margin-left: 0rem;
-    transition: 1s;
-} */
-
-/* .navbar.active .inicio{
-    transform: scale(1);
-    width: max-content;
-} */
 
 .navbar .logo {
     object-fit: contain;
@@ -133,6 +121,7 @@ body {
     margin-top: 1rem;
     display: flex;
     gap: 6rem;
+    width: 100%;
 }
 
 .navbar-list_link {
@@ -705,6 +694,20 @@ swiper-slide img:hover {
     #toggle  {
         display: none;
     }
+    .section-2, .section-4, .section-6{
+        transform: translateX(-2500px);
+        
+    }
+
+    .section-3, .section-5{
+        transform: translateX(2500px);
+        
+    }
+
+    .section-2.translate, .section-3.translate, .section-4.translate, .section-5.translate, .section-6.translate{
+        transform: translateX(0);
+        transition: transform 0.5s ease-out;
+    }
 }
 @media screen and (max-width: 800px) {
     .navbar,
@@ -713,21 +716,30 @@ swiper-slide img:hover {
     .artistas-wrapper,
     .section-4-subtitle,
     .section-4-links .icons-links,
-    .faqs,
-    .client-cards{
+    .faqs {
         display: none;
     }
     .section-heading {
         font-size: 3rem;
-        margin-bottom: 5rem;
+        margin: 5rem 0;
     }
     .section-3,
     .section-4,
     .section-5,
     .section-6 {
-        min-height: 100dvh;
+        min-height: auto;
         height: auto;
         padding: 3rem;
+    }
+
+    body {
+        background-color: var(--black);
+        background-image: none;
+        background-size: cover;
+        background-blend-mode: overlay;
+        background-position: center;
+        /* background-color: rgb(109, 90, 56); */
+        overflow-x: hidden;
     }
     html {
         font-size: 52%;
@@ -880,19 +892,37 @@ swiper-slide img:hover {
     .section-3-content {
         width: 100%;
         margin-top: 5rem;
-        max-height: 500px;
-        overflow-y: scroll;
     }
+    .seeLess,
+    .seeMore,
+    .toggleText {
+        display: none;
+    }
+    .seeLess.show,
+    .seeMore.show {
+        display: inline;
+        color: rgb(43, 43, 197);
+        text-decoration: underline;
+    }
+
     /* End Section 3 */
 
     /* Section 4 */
-    .client-cardsMobile {
+    .client-cards {
+        grid-template-columns: auto;
+    }
+    /* .client-cardsMobile {
         height: 72rem;
         overflow: hidden;
-    }
+    } */
     .card {
         width: 95%;
         margin: 0 auto 2rem;
+    }
+    .card:nth-of-type(5),
+    .card:nth-of-type(4),
+    .card:nth-of-type(6) {
+        display: none;
     }
     .section-4-links {
         margin-top: 5rem;
@@ -922,62 +952,61 @@ swiper-slide img:hover {
     /* End Section 4 */
 
     /* Section 5 */
-    .section-5{
+    /* .section-5 {
         height: 80vh;
-    }
-    .faqsMobile{
+    } */
+    .faqsMobile {
         display: grid;
         height: 100%;
         place-content: center;
     }
-    .faqsMobile
-    .faq{
+    .faqsMobile .faq {
         width: 100%;
         height: auto;
         margin-bottom: 4rem;
     }
-    .faq .question{
-
+    .faq .question {
         display: flex;
         gap: 2rem;
         align-items: center;
     }
-    .question i{
+    .question i {
         font-size: 20px;
-        transition: .4s;
+        transition: 0.4s;
     }
-    .faq.show i{
+    .faq.show i {
         transform: rotate(180deg);
     }
-    .faq span{
+    .faq span {
         height: 0;
         overflow: hidden;
         margin: 2rem 0;
     }
-    .faq.show span{
+    .faq.show span {
         height: auto;
     }
     /* End of Section 5 */
     /* Section 6 */
-    .map{
+    .map {
         width: 100%;
     }
-    .time-info{
+    .time-info {
         margin-left: 2rem;
     }
-    .section-6 .icons-links, .section-6 .link{
+    .section-6 .icons-links,
+    .section-6 .link {
         display: none;
     }
     /* End of Section 6 */
     /* footer */
-    .footer{
+    .footer {
         height: auto;
         margin-bottom: 15rem;
     }
-    .footer .icons-links{
+    .footer .icons-links {
         justify-content: center;
     }
-    .footer .icons-links a img{
+    .footer .icons-links a img {
         width: 30px;
         object-fit: cover;
     }
@@ -1002,7 +1031,7 @@ swiper-slide img:hover {
         height: 15px;
     }
     /* end footer */
-}
+}   
 @media screen and (max-width: 600px) {
     .section-1-bg {
         height: 100%;
