@@ -982,13 +982,27 @@ swiper-slide img:hover {
     .faq.show i {
         transform: rotate(180deg);
     }
-    .faq span {
+    /* .faq span {
         height: 0;
         overflow: hidden;
         margin: 2rem 0;
     }
     .faq.show span {
         height: auto;
+    } */
+
+    .faq-grid{
+        margin: 2rem 0;
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: .4s ease-in-out;
+    }
+    .faq-grid > div {
+        overflow: hidden;
+      }
+
+    .faq.show .faq-grid{
+        grid-template-rows: 1fr;
     }
     /* End of Section 5 */
     
